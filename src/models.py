@@ -45,7 +45,7 @@ class Comment(Base):
     author_id = Column(Integer, ForeignKey('user.id'))
     author=relationship("User")
     post_id = Column(Integer, ForeignKey('post.id'))
-    person = relationship("Post")
+    post = relationship("Post")
 
 class Follower(Base):
     __tablename__ = 'follower'
