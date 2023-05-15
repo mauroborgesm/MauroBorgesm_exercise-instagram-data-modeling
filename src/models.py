@@ -25,14 +25,15 @@ class Media(Base):
     type = Column(String(250))
     url = Column(String(250))
     post_id = Column(Integer)
-    
+    id_posts=Column(Integer, ForeignKey("post.id"))
+    post=relationship("Post")
 
 class Post(Base):
     __tablename__ = 'post'
     # Here we define columns for the table address.
     # Notice that each column is also a normal Python instance attribute.
-    id = Column(Integer, ForeignKey('post_id.id'))
-    id_post=relationship("Media")
+    id = Column(Integer, primary_key=True)
+    
     user_id = Column(Integer, ForeignKey('user.id'))
     user = relationship("User")
 
